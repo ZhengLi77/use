@@ -120,9 +120,68 @@ chmod +x Miniconda3-latest-Linux-x86_64.sh
 
 开头是许可协议啥的，回车即可，输入`yes`即可开始安装，后面路径、添加到环境变量默认回车即可。
 
+安装完成后，关闭xshell并重新连接服务器后，发现用户名前出现base，说明已经正确安装了miniconda，并处于base环境下。
+
+<img src="./assets/image-20230925165824586.png" alt="image-20230925165824586" style="zoom:80%;" />
+
+conda常见使用命令：
+
+- `conda create -n env_name python=3.10`：创建一个新的conda环境。
+- `conda env list`：列出所有conda环境。
+- `conda activate env_name`：激活某个conda环境。
+- `conda deactivate`：退出当前conda环境。
+- `conda env remove -n  env_name --all`：删除某个conda环境。
+
 ***
 
-### 跑通Yolov5
+### 跑通Yolov5做迁移训练
+
+首先使用`conda`创建虚拟环境并激活环境：
+
+```shell
+conda create -n yolov5 python=3.8
+conda activate yolov5
+git clone --branch v5.0 https://github.com/ultralytics/yolov5.git # 将yolov5官方项目克隆到服务器上，可使用git来克隆项目
+cd yolov5
+```
+
+使用xftp打开yolov5文件夹下的requirements.txt发现
+
+<img src="./assets/image-20231007160007039.png" alt="image-20231007160007039" style="zoom:80%;" />
+
+需要使用到torch和torchvision这两个包的，且需要满足版本要求。由于torch和torchvision版本有对应关系，而且torch和cuda版本也有版本对应关系，而cuda版本取决于显卡和显卡驱动，所以在安装torch和torchvision包之前应先确认显卡及显卡驱动。安装好cuda之后再去安装torch和torchvision包。
+
+```shell
+nvidia-smi # 查看显卡驱动支持的cuda版本
+```
+
+<img src="./assets/image-20231007160608232.png" alt="image-20231007160608232" style="zoom:80%;" />
+
+**注：显卡的算力也决定了cuda的版本，比如RTX3090的算力为8.6，就不支持cuda11.0及以下的版本，所以在安装cuda之前可以先调查以下服务器的显卡型号，以及支持的cuda版本**
+
+可以看到当前服务器显卡支持最大cuda版本为10.2。所以我们可以安装版本低于10.2的cuda。安装cuda有多种方式：
+
+1、本地安装
+
+当你需要使用cuda来编译程序的话，则需要使用本地安装，否则建议在虚拟环境中安装。
+
+非root本地安装cuda可以参考这篇文章：https://zhuanlan.zhihu.com/p/476313656?utm_id=0
+
+
+
+2、conda安装
+
+激活环境并查询可安装的cudatoolkit版本：
+
+![image-20231030151250577](./assets/image-20231030151250577.png)
+
+
+
+
+
+
+
+
 
 
 
