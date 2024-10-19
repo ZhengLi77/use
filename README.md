@@ -10,9 +10,23 @@
 
 填写姓名邮件，选择两者，邮件会收到下载链接，下载安装即可。
 
+**注：Xshell用于ssh连接服务器，Xftp用于与服务器文件进行互相传输。**
+
 ***
 
 ### 远程ssh登录服务器
+
+#### 谢老师服务器篇
+
+打开安装好的xshell，在弹出的会话中新建，名称随意，主机填写IP地址。
+
+<img src="./assets/image-20241018183717311.png" alt="image-20241018183717311" style="zoom:67%;" />
+
+点击连接，首次登录会弹出提示输入用户名和密码，可以勾选记住用户名和密码，下次登录就无需再次输入了。这样就登录上服务器了。
+
+<img src="./assets/image-20241018183833016.png" alt="image-20241018183833016" style="zoom:67%;" />
+
+#### 院长服务器篇
 
 打开安装好的xshell，在弹出的会话中新建，名称随意，主机填写申请到的IP地址。
 
@@ -26,11 +40,13 @@
 
 ![image-20230818095605502](./assets/image-20230818095605502.png)
 
-### 服务器联网
+
+
+##### 服务器联网
 
 ***
 
-服务器只对接了njupt校园网，不属于校园卡电信或移动。所以请提前在南京邮电大学小程序一卡通网费进行充值（价格：0.2元/小时）。
+院长服务器只对接了njupt校园网，不属于校园卡电信或移动。所以请提前在南京邮电大学小程序一卡通网费进行充值（价格：0.2元/小时）。
 
 在命令行输入：
 
@@ -76,7 +92,9 @@ curl "192.168.168.168/F.htm"
 
 ***
 
-### 安装miniconda
+### 安装conda环境
+
+#### 安装miniconda
 
 Miniconda和Anaconda的区别：
 
@@ -118,7 +136,9 @@ chmod +x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh
 ```
 
-开头是许可协议啥的，回车即可，输入`yes`即可开始安装，后面路径、添加到环境变量默认回车即可。
+开头是许可协议啥的，回车即可，输入`yes`即可开始安装，后面路径、添加到环境变量（这里输入yes）默认回车即可。
+
+<img src="./assets/image-20241018184509313.png" alt="image-20241018184509313" style="zoom:67%;" />
 
 安装完成后，关闭xshell并重新连接服务器后，发现用户名前出现base，说明已经正确安装了miniconda，并处于base环境下。
 
@@ -132,6 +152,33 @@ conda常见使用命令：
 - `conda deactivate`：退出当前conda环境。
 - `conda env remove -n  env_name --all`：删除某个conda环境。
 
+#### conda换源
+
+由于默认conda源链接为默认官方链接，使用conda装环境下载速度过慢
+
+```shell
+conda config --show
+```
+
+<img src="./assets/image-20241018185134878.png" alt="image-20241018185134878" style="zoom:67%;" />
+
+切换到清华镜像源
+
+```shell
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/menpo/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+conda config --set show_channel_urls yes
+```
+
+即可更换成功
+
+<img src="./assets/image-20241018185258104.png" alt="image-20241018185258104" style="zoom:67%;" />
+
 ***
 
 ### 跑通Yolov5做迁移训练
@@ -141,7 +188,12 @@ conda常见使用命令：
 ```shell
 conda create -n yolov5 python=3.8
 conda activate yolov5
-git clone --branch v5.0 https://github.com/ultralytics/yolov5.git # 将yolov5官方项目克隆到服务器上，可使用git来克隆项目
+```
+
+从github仓库拉取yolov5源代码：
+
+```
+git clone --branch v5.0 https://github.com/ultralytics/yolov5.git # 将yolov5官方项目克隆到服务器上，branch版本分支为5.0
 cd yolov5
 ```
 
@@ -214,7 +266,7 @@ screen -S test # 创建一个叫test的会话
 这样就会进入到全新的会话
 
 ```
-
+screen -S test # 创建一个叫test的会话
 ```
 
 
