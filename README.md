@@ -179,9 +179,21 @@ conda config --set show_channel_urls yes
 
 <img src="./assets/image-20241018185258104.png" alt="image-20241018185258104" style="zoom:67%;" />
 
+#### pip换源
+
+大部分python包使用pip来安装，默认的pip源位于国外，安装python包比较慢，需要进行换源。
+
+一键更换pip源为清华源
+
+```shell
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
 ***
 
 ### 跑通Yolov5做迁移训练
+
+#### 拉取源码
 
 首先使用`conda`创建虚拟环境并激活环境：
 
@@ -192,50 +204,99 @@ conda activate yolov5
 
 从github仓库拉取yolov5源代码：
 
-```
+```shell
 git clone --branch v5.0 https://github.com/ultralytics/yolov5.git # 将yolov5官方项目克隆到服务器上，branch版本分支为5.0
 cd yolov5
 ```
 
-使用xftp打开yolov5文件夹下的requirements.txt发现
+使用cat命令查看到yolov5所需的环境。
 
-<img src="./assets/image-20231007160007039.png" alt="image-20231007160007039" style="zoom:80%;" />
+```shell
+cat requirements.txt
+```
+
+<img src="./assets/image-20241019160317139.png" alt="image-20241019160317139" style="zoom:67%;" />
 
 需要使用到torch和torchvision这两个包的，且需要满足版本要求。由于torch和torchvision版本有对应关系，而且torch和cuda版本也有版本对应关系，而cuda版本取决于显卡和显卡驱动，所以在安装torch和torchvision包之前应先确认显卡及显卡驱动。安装好cuda之后再去安装torch和torchvision包。
+
+#### 安装cuda
 
 ```shell
 nvidia-smi # 查看显卡驱动支持的cuda版本
 ```
 
-<img src="./assets/image-20231007160608232.png" alt="image-20231007160608232" style="zoom:80%;" />
+<img src="./assets/image-20241019160615590.png" alt="image-20241019160615590" style="zoom:67%;" />
 
 **注：显卡的算力也决定了cuda的版本，比如RTX3090的算力为8.6，就不支持cuda11.0及以下的版本，所以在安装cuda之前可以先调查以下服务器的显卡型号，以及支持的cuda版本**
 
-可以看到当前服务器显卡支持最大cuda版本为10.2。所以我们可以安装版本低于10.2的cuda。安装cuda有多种方式：
+可以看到当前服务器显卡支持最大cuda版本为12.2。所以我们可以安装版本低于12.2的cuda。安装cuda有多种方式：
 
-1、本地安装
+##### 1、本地安装cuda
 
 当你需要使用cuda来编译程序的话，则需要使用本地安装，否则建议在虚拟环境中安装。
 
 非root本地安装cuda可以参考这篇文章：https://zhuanlan.zhihu.com/p/476313656?utm_id=0
 
+##### 2、conda安装cuda
 
+可使用conda直接安装cudatoolkit和cudnn(实现高性能GPU加速)
 
-2、conda安装
+cuda和cudnn版本对应关系：https://developer.nvidia.com/rdp/cudnn-archive
 
-激活环境并查询可安装的cudatoolkit版本：
+```shell
+conda install cudatoolkit=11.1
+conda install cudnn=8.2.1
+```
 
-![image-20231030151250577](./assets/image-20231030151250577.png)
+使用conda命令查看安装的conda包
 
+```shell
+conda list
+```
 
+<img src="./assets/image-20241019171203768.png" alt="image-20241019171203768" style="zoom:67%;" />
 
+#### 安装torch和torchvision
 
+安装完cuda之后便可以安装torch和torchvision了
 
+由于我们安装的cuda版本是11.1.1，所以torch应与cuda对应
 
+torch与cuda版本对应关系：https://pytorch.org/get-started/previous-versions/
 
+打开网页可用浏览器的ctrl+f网页搜索，输入cu111可找到多个版本的torch
 
+<img src="./assets/image-20241019175236713.png" alt="image-20241019175236713" style="zoom: 67%;" />
 
+![image-20241019175257050](./assets/image-20241019175257050.png)
 
+按照requirements.txt要求，选择torch==1.10.0进行安装
+
+```shell
+pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+```
+
+由于默认的pytorch源也在国外，下载速度会很慢甚至连接不上，可替换成阿里云的源
+
+```shell
+pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 -f https://mirrors.aliyun.com/pytorch-wheels/cu111/
+```
+
+耐心等待安装完成即可。
+
+#### 安装其他python包
+
+安装完成了torch和torchvision这两个最重要的包之后，其他包即可直接使用
+
+```shell
+pip install -r requirements.txt
+```
+
+进行安装了，这样就完成了所有的yolov5所需要的包
+
+<img src="./assets/image-20241019181624514.png" alt="image-20241019181624514" style="zoom:67%;" />
+
+准备数据集
 
 
 
