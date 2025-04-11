@@ -1,10 +1,29 @@
 # 服务器使用指南-by时
 
-### 目录
-
-[TOC]
-
 ### linux主机远程管理软件下载安装
+
+- [服务器使用指南-by时](#服务器使用指南-by时)
+    - [linux主机远程管理软件下载安装](#linux主机远程管理软件下载安装)
+    - [远程ssh登录服务器](#远程ssh登录服务器)
+      - [谢老师服务器篇](#谢老师服务器篇)
+      - [院长服务器篇](#院长服务器篇)
+        - [服务器联网](#服务器联网)
+    - [安装conda环境](#安装conda环境)
+      - [安装miniconda](#安装miniconda)
+      - [conda换源](#conda换源)
+      - [pip换源](#pip换源)
+    - [GPU调用、Pycharm连接等（以yolov5为例）](#gpu调用、pycharm连接等（以yolov5为例）)
+      - [拉取源码](#拉取源码)
+      - [安装cuda](#安装cuda)
+        - [1、本地安装cuda](#1、本地安装cuda)
+        - [2、conda安装cuda](#2、conda安装cuda)
+      - [安装torch和torchvision](#安装torch和torchvision)
+      - [安装其他python包](#安装其他python包)
+      - [Pycharm远程调试服务器代码](#pycharm远程调试服务器代码)
+      - [准备模型](#准备模型)
+    - [Linux常用命令及技巧](#linux常用命令及技巧)
+      - [通过会话在后台跑程序](#通过会话在后台跑程序)
+      - [服务器使用梯子方便下载包、数据集、模型文件、克隆仓库等](#服务器使用梯子方便下载包、数据集、模型文件、克隆仓库等)
 
 下载链接：https://www.xshell.com/zh/free-for-home-school/
 
