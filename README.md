@@ -266,7 +266,7 @@ nvidia-smi # 查看显卡驱动支持的cuda版本
 nvcc -V
 ```
 
-![image-20250402151051269](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250402151051269.png)
+![image-20250411212929648](./assets/image-20250411212929648.png)
 
 可以看到ubuntu版本为20.04，cuda版本为10.1，服务器自带cuda版本不满足我们的要求，接下来示范一下如何在自己目录安装一个属于自己的本地cuda（以cudatoolkit=11.8为例）
 
@@ -274,15 +274,15 @@ nvcc -V
 
 选择对应版本
 
-![image-20250411134242376](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411134242376.png)
+![image-20250411212941055](./assets/image-20250411212941055.png)
 
 选择好会就有提示的安装命令
 
-![image-20250411134434431](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411134434431.png)
+![image-20250411212946760](./assets/image-20250411212946760.png)
 
 只用第一行的wget命令用于下载安装包即可，等待下载完成
 
-![image-20250411134543222](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411134543222.png)
+![image-20250411212951150](./assets/image-20250411212951150.png)
 
 下载完成后使用命令进行安装
 
@@ -292,27 +292,27 @@ chmod +x cuda_11.8.0_520.61.05_linux.run && ./cuda_11.8.0_520.61.05_linux.run
 
 会弹出提示已存在驱动，选择继续回车即可
 
-![image-20250411135100776](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411135100776.png)
+![image-20250411212954043](./assets/image-20250411212954043.png)
 
 输入accept回车即可
 
-![image-20250411135119066](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411135119066.png)
+![image-20250411212956287](./assets/image-20250411212956287.png)
 
 使用回车键取消勾选其他的X，只保留CUDA Tookit 11.8
 
-![image-20250411135245098](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411135245098.png)
+![image-20250411212959072](./assets/image-20250411212959072.png)
 
 用A键进入cudatookit配置界面，选择Change Tookit Install Path更改安装位置，如果不改，默认是在 /usr/local下，而在服务器里，普通用户没有权限把东西放那里去。
 
-![image-20250411135225566](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411135225566.png)
+![image-20250411213001538](./assets/image-20250411213001538.png)
 
 修改为你自己所在目录即可，如下图
 
-![image-20250411135210431](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411135210431.png)
+![image-20250411213003795](./assets/image-20250411213003795.png)
 
 回车保存修改后，回到第一个界面，选择install进行安装
 
-![image-20250411140943848](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411140943848.png)
+![image-20250411213006074](./assets/image-20250411213006074.png)
 
 等待安装完成后，可以看到结果，最后输入
 
@@ -322,13 +322,13 @@ rm /tmp/cuda-installer.log
 
 删除安装日志。
 
-![image-20250411141124718](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411141124718.png)
+![image-20250411213008720](./assets/image-20250411213008720.png)
 
 使用xftp打开自己所在目录，找到.bashrc文件进行修改，若找不到，需要到xftp的工具-选项里打开显示隐藏文件
 
-![image-20250411140550200](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411140550200.png)
+![image-20250411213011308](./assets/image-20250411213011308.png)
 
-![image-20250411140424483](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411140424483.png)
+![image-20250411213013826](./assets/image-20250411213013826.png)
 
 
 
@@ -347,7 +347,7 @@ source ~/.bashrc
 
 以刷新环境变量，最后使用nvcc -V，查看安装结果，可以看到已经变成cuda11.8了
 
-![image-20250411135849681](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411135849681.png)
+![image-20250411213016989](./assets/image-20250411213016989.png)
 
 ##### 2、conda安装cuda
 
@@ -532,7 +532,7 @@ exit # 销毁test会话
 
 首先尝试访问外网网站
 
-![image-20250411194249120](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411194249120.png)
+![image-20250411212858137](./assets/image-20250411212858137.png)
 
 发现会出现卡住，无法访问
 
@@ -555,7 +555,7 @@ curl -f "替换为你自己的订阅链接" >> config.yaml
 ./clash -d .
 ```
 
-![image-20250411200354713](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411200354713.png)
+![image-20250411212848035](./assets/image-20250411212848035.png)
 
 这样clash已经运行起来了，但是这样会把当前窗口占用，可以使用上面的screen命令，将其运行在后台
 
@@ -569,7 +569,7 @@ export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890
 
 之后，再访问外网就发现已经有反应了，说明已经代理成功
 
-![image-20250411201007354](C:\Users\SHI\AppData\Roaming\Typora\typora-user-images\image-20250411201007354.png)
+![image-20250411212833695](./assets/image-20250411212833695.png)
 
 取消使用代理
 
