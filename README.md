@@ -124,6 +124,8 @@ chmod +x Miniconda3-latest-Linux-x86_64.sh
 
 <img src="./assets/image-20230925165824586.png" alt="image-20230925165824586" style="zoom:80%;" />
 
+**注：创建虚拟环境及安装python包需要联网！**
+
 conda常见使用命令：
 
 - `conda create -n env_name python=3.10`：创建一个新的conda环境。
@@ -168,8 +170,6 @@ conda config --set show_channel_urls yes
 ```shell
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
-
-**注：安装python包需要联网！**
 
 ***
 
@@ -245,6 +245,7 @@ screen -r test # 重新连接test会话
 ```shell
 exit # 销毁test会话
 ```
+
 
 
 
