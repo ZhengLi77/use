@@ -209,7 +209,7 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 <img src="./assets/屏幕截图 2025-09-23 165408.png" alt="屏幕截图 2025-09-23 165408" style="zoom:67%;" />
 
-**原理：当选择了远程解释器后，pycharm只是起到一个监视运行结果的作用。当在本地pycharm修改完代码之后，仍需要把修改后的代码上传到远程服务器，这样运行的才是最新代码。所以没必要把数据集和模型文件放在本地电脑，代码运行全是在远程服务器上的。**
+**注：当选择了远程解释器后，pycharm只是起到一个监视运行结果的作用。当在本地pycharm修改完代码之后，仍需要把修改后的代码上传到远程服务器，这样运行的才是最新代码。**
 
 <img src="./assets/屏幕截图 2025-09-23 165506.png" alt="屏幕截图 2025-09-23 165506" style="zoom:67%;" />
 
@@ -245,6 +245,7 @@ screen -r test # 重新连接test会话
 ```shell
 exit # 销毁test会话
 ```
+
 
 
 
