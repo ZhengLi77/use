@@ -7,13 +7,7 @@
       - [安装miniconda](#安装miniconda)
       - [conda换源](#conda换源)
       - [pip换源](#pip换源)
-    - [GPU调用、Pycharm连接等（以yolov5为例）](#gpu调用、pycharm连接等（以yolov5为例）)
-      - [拉取源码](#拉取源码)
-      - [安装cuda](#安装cuda)
-      - [安装torch和torchvision](#安装torch和torchvision)
-      - [安装其他python包](#安装其他python包)
-      - [Pycharm远程调试服务器代码](#pycharm远程调试服务器代码)
-      - [准备模型](#准备模型)
+  - [Pycharm远程调试服务器代码](#pycharm远程调试服务器代码)
     - [Linux常用命令及技巧](#linux常用命令及技巧)
       - [通过会话在后台跑程序](#通过会话在后台跑程序)
       - [服务器使用梯子方便下载包、数据集、模型文件、克隆仓库等](#服务器使用梯子方便下载包、数据集、模型文件、克隆仓库等)
@@ -171,9 +165,11 @@ conda config --set show_channel_urls yes
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
+**注：安装python包需要联网！**
+
 ***
 
-#### Pycharm远程调试服务器代码
+### Pycharm远程调试服务器代码
 
 
 右下角选择解释器---添加解释器---ssh解释器---新建ssh并测试连接成功---选择服务器自己目录下miniconda下的对应的python解释器---本地电脑的文件夹路径与服务器的项目文件夹进行对应---取消自动同步---检查是否配置正确---应用即可
@@ -200,10 +196,6 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 ![image-20241021102956309](./assets/image-20241021102956309.png)
 
-![image-20241021103048885](./assets/image-20241021103048885.png)
-
-![image-20241021103136928](./assets/image-20241021103136928.png)
-
 
 连接到远程服务器之后，在pycharm中点击Tools-Deployment-Browse Remote Host即可查看和修改远程服务器内的文件。
 
@@ -213,42 +205,6 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 <img src="./assets/屏幕截图 2025-09-23 165506.png" alt="屏幕截图 2025-09-23 165506" style="zoom:67%;" />
 
-
-#### 准备模型
-
-从github上下载yolov5的v5.0的预训练模型：https://github.com/ultralytics/yolov5/releases
-
-在v5.0下我们能看到很多版本的预训练模型，这是他们的区别：
-
-![image-20241021105347457](./assets/image-20241021105347457.png)
-
-这里我选择了yolov5s
-
-![image-20241021105525443](./assets/image-20241021105525443.png)
-
-下载后放在yolov5/weights文件夹下（可使用xftp直接从本地电脑拖到目标文件夹下）
-
-![image-20241021105728194](./assets/image-20241021105728194.png)
-
-有了预训练模型其实可以测试项目yolov5/data/images自带的图片了
-
-修改detect.py文件，修改模型位置、device默认值设为1（1代表位置2的显卡）
-
-![image-20241021111323840](./assets/image-20241021111323840.png)
-
-修改完需要上传到远程服务器，这样运行的才是最新的代码：鼠标右击---上传到远程服务器---运行
-
-![image-20241021111419593](./assets/image-20241021111419593.png)
-
-![image-20241021111431967](./assets/image-20241021111431967.png)
-
-可以看到运行成功，结果保存在如下位置：
-
-![image-20241021111520193](./assets/image-20241021111520193.png)
-
-xftp打开到此目录下，可以看到有两个已经预测完成的图片，右键打开可以看到预测的图片
-
-![image-20241021111555576](./assets/image-20241021111555576.png)
 
 ### Linux常用命令及技巧
 
@@ -287,6 +243,7 @@ exit # 销毁test会话
 ```
 
 注意：routes里的配置是为了可通过校园网直接访问改系统部署的服务，如：ssh、web、ftp、api等
+
 
 
 
