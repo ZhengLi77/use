@@ -15,7 +15,7 @@
 
 ### 写在前面
 
-此教程基于[此仓库](https://github.com/xindongzetong/use)，主要内容包括连接远程服务器的软件准备、软件配置方法和简单的操作教程，主要面向于有一定深度学习环境配置基础的同学。对于零基础的同学，建议在本地学习一下conda、cuda、pytorch等关键工具之间的依赖关系和安装方法，以及配置虚拟环境的基本命令。在服务器上安装cuda和pytorch的教程详见[原始仓库](https://github.com/xindongzetong/use)。
+此教程基于[此仓库](https://github.com/xindongzetong/use)，主要内容包括连接远程服务器的软件准备、软件配置方法和简单的操作教程，主要面向有一定**深度学习环境配置基础**的同学。对于零基础的同学，建议在本地学习一下conda、cuda、pytorch等关键工具之间的依赖关系和安装方法，以及配置虚拟环境的基本命令。在服务器上安装cuda和pytorch的教程详见[原始仓库](https://github.com/xindongzetong/use)。
 
 ### linux主机远程管理软件下载安装
 
@@ -245,6 +245,7 @@ screen -r test # 重新连接test会话
 ```shell
 exit # 销毁test会话
 ```
+
 
 
 
