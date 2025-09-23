@@ -2,8 +2,7 @@
 - [服务器使用指南-by时](#服务器使用指南-by时)
     - [linux主机远程管理软件下载安装](#linux主机远程管理软件下载安装)
     - [远程ssh登录服务器](#远程ssh登录服务器)
-      - [院长服务器篇](#院长服务器篇)
-        - [服务器联网](#服务器联网)
+    - [服务器联网](#服务器联网)
     - [安装conda环境](#安装conda环境)
       - [安装miniconda](#安装miniconda)
       - [conda换源](#conda换源)
@@ -11,8 +10,6 @@
     - [GPU调用、Pycharm连接等（以yolov5为例）](#gpu调用、pycharm连接等（以yolov5为例）)
       - [拉取源码](#拉取源码)
       - [安装cuda](#安装cuda)
-        - [1、本地安装cuda](#1、本地安装cuda)
-        - [2、conda安装cuda](#2、conda安装cuda)
       - [安装torch和torchvision](#安装torch和torchvision)
       - [安装其他python包](#安装其他python包)
       - [Pycharm远程调试服务器代码](#pycharm远程调试服务器代码)
@@ -187,6 +184,8 @@ conda create -n yolov5 python=3.8
 conda activate yolov5
 ```
 
+**注：从此处开始，拉取源码、安装依赖包、下载预训练模型等均需联网操作。**
+
 从github仓库拉取yolov5源代码：
 
 ```shell
@@ -206,7 +205,9 @@ cat requirements.txt
 
 #### 安装cuda
 
-```shell
+服务器基本已安装好cuda，此步可跳过。
+
+<!--```shell
 nvidia-smi # 查看显卡驱动支持的cuda版本
 ```
 
@@ -328,7 +329,7 @@ conda install cudnn=8.2.1
 conda list
 ```
 
-<img src="./assets/image-20241019171203768.png" alt="image-20241019171203768" style="zoom:67%;" />
+<img src="./assets/image-20241019171203768.png" alt="image-20241019171203768" style="zoom:67%;" /> -->
 
 #### 安装torch和torchvision
 
@@ -487,4 +488,5 @@ exit # 销毁test会话
 ```
 
 注意：routes里的配置是为了可通过校园网直接访问改系统部署的服务，如：ssh、web、ftp、api等
+
 
