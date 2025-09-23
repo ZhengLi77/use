@@ -70,6 +70,8 @@ ping www.baidu.com
 
 出现类似这样的说明已经网络连通了
 
+**注：可以先ping一下百度查看服务器是否已联网！**
+
 ***
 
 ### 安装conda环境
@@ -245,6 +247,7 @@ screen -r test # 重新连接test会话
 ```shell
 exit # 销毁test会话
 ```
+
 
 
 
