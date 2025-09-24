@@ -53,10 +53,7 @@
 
 **注：可以先ping一下百度查看服务器是否已联网！若可以ping通则跳过此步！**
 
-**注：xmanager没有学生免费使用的优惠，需要自行破解。若火狐浏览器卡死，在xshell中Ctrl+c即可关闭。**
-
-xmanager的破解补丁链接：https://gitcode.com/open-source-toolkit/e1a5a/?utm_source=tools_gitcode&index=top&type=card&&uuid_tt_dd=10_6637885510-1752204339569-876898&isLogin=1&from_id=142889247&from_link=896d219d7cfba93c6e8b0f390c158fe3
-
+**注：xmanager没有学生免费使用的优惠，需要自行破解，xmanager的破解[补丁链接](https://gitcode.com/open-source-toolkit/e1a5a/?utm_source=tools_gitcode&index=top&type=card&&uuid_tt_dd=10_6637885510-1752204339569-876898&isLogin=1&from_id=142889247&from_link=896d219d7cfba93c6e8b0f390c158fe3)。若火狐浏览器卡死，在xshell中Ctrl+c即可关闭。**
 
 在命令行输入firefox打开火狐浏览器，输入10.80.128.2进入校园网登录界面，输入一卡通号和密码登录即可。
 
@@ -259,6 +256,7 @@ screen -r test # 重新连接test会话
 ```shell
 exit # 销毁test会话
 ```
+
 
 
 
