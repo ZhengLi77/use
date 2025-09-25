@@ -144,13 +144,13 @@ conda常见使用命令：
 pip install numpy
 ```
 
-临时切换到清华源安装nunpy的命令为：
+临时切换到清华源安装numpy的命令为：
 
 ```
 pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-其他常用是镜像源还包括：
+其他常用的镜像源还包括：
 
 ```
 清华：https://pypi.tuna.tsinghua.edu.cn/simple/
@@ -252,6 +252,7 @@ screen -r test # 重新连接test会话
 ```shell
 exit # 销毁test会话
 ```
+
 
 
 
