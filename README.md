@@ -4,8 +4,8 @@
     - [远程ssh登录服务器](#远程ssh登录服务器)
     - [服务器联网](#服务器联网)
     - [安装conda环境](#安装conda环境)
-      -[安装miniconda](#安装miniconda)
-      -[临时切换镜像源](#临时切换镜像源)
+      - [安装miniconda](#安装miniconda)
+      - [临时切换镜像源](#临时切换镜像源)
   - [Pycharm远程调试服务器代码](#pycharm远程调试服务器代码)
     - [Linux常用命令及技巧](#linux常用命令及技巧)
 
@@ -250,6 +250,7 @@ screen -r test # 重新连接test会话
 ```shell
 exit # 销毁test会话
 ```
+
 
 
 
