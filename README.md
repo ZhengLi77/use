@@ -166,6 +166,8 @@ pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install <安装包> -i <镜像源>
 ```
 
+***
+
 ### Pycharm远程调试服务器代码
 
 **xshell是为了使用命令行配置虚拟环境和运行代码等，xftp是为了上传和下载文件。然而，若每次都在本地修改好代码再使用xftp传输到服务器中，十分费时和麻烦。因此，可以使用pycharm连接服务器，便于代码的查看、编辑和上传。**
@@ -250,6 +252,7 @@ screen -r test # 重新连接test会话
 ```shell
 exit # 销毁test会话
 ```
+
 
 
 
