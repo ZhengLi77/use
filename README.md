@@ -4,9 +4,6 @@
     - [远程ssh登录服务器](#远程ssh登录服务器)
     - [服务器联网](#服务器联网)
     - [安装conda环境](#安装conda环境)
-      - [安装miniconda](#安装miniconda)
-      - [conda换源](#conda换源)
-      - [pip换源](#pip换源)
   - [Pycharm远程调试服务器代码](#pycharm远程调试服务器代码)
     - [Linux常用命令及技巧](#linux常用命令及技巧)
 
@@ -73,8 +70,6 @@ ping www.baidu.com
 
 ### 安装conda环境
 
-#### 安装miniconda
-
 Miniconda和Anaconda的区别：
 
 ![image-20230918170915265](./assets/image-20230918170915265.png)
@@ -132,43 +127,6 @@ conda常见使用命令：
 - `conda activate env_name`：激活某个conda环境。
 - `conda deactivate`：退出当前conda环境。
 - `conda env remove -n  env_name --all`：删除某个conda环境。
-
-#### conda换源
-
-由于默认conda源链接为默认官方链接，使用conda装环境下载速度过慢
-
-```shell
-conda config --show
-```
-
-<img src="./assets/image-20241018185134878.png" alt="image-20241018185134878" style="zoom:67%;" />
-
-切换到清华镜像源
-
-```shell
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/menpo/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
-conda config --set show_channel_urls yes
-```
-
-即可更换成功
-
-<img src="./assets/image-20241018185258104.png" alt="image-20241018185258104" style="zoom:67%;" />
-
-#### pip换源
-
-大部分python包使用pip来安装，默认的pip源位于国外，安装python包比较慢，需要进行换源。
-
-一键更换pip源为清华源
-
-```shell
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-```
 
 ***
 
@@ -256,6 +214,7 @@ screen -r test # 重新连接test会话
 ```shell
 exit # 销毁test会话
 ```
+
 
 
 
