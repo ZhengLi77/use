@@ -4,6 +4,7 @@
     - [远程ssh登录服务器](#远程ssh登录服务器)
     - [服务器联网](#服务器联网)
     - [安装conda环境](#安装conda环境)
+          -[安装miniconda](#安装miniconda)
   - [Pycharm远程调试服务器代码](#pycharm远程调试服务器代码)
     - [Linux常用命令及技巧](#linux常用命令及技巧)
 
@@ -70,6 +71,8 @@ ping www.baidu.com
 
 ### 安装conda环境
 
+#### 安装miniconda
+
 Miniconda和Anaconda的区别：
 
 ![image-20230918170915265](./assets/image-20230918170915265.png)
@@ -129,6 +132,38 @@ conda常见使用命令：
 - `conda env remove -n  env_name --all`：删除某个conda环境。
 
 ***
+
+#### 临时切换镜像源
+
+大部分python包使用pip来安装，默认的pip源位于国外，安装python包比较慢，可以在安装时临时换源。
+
+以numpy为例，在默认源下使用pip安装numpy的命令为：
+
+```
+pip install numpy
+```
+
+临时切换到清华源安装nunpy的命令为：
+
+```
+pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+其他常用是镜像源还包括：
+
+```
+清华：https://pypi.tuna.tsinghua.edu.cn/simple/
+阿里云：https://mirrors.aliyun.com/pypi/simple/
+中国科学技术大学：https://pypi.mirrors.ustc.edu.cn/simple/
+华为云： https://repo.huaweicloud.com/repository/pypi/simple/
+腾讯云：https://mirrors.cloud.tencent.com/pypi/simple/
+```
+
+实际应用中替换镜像源地址即可：
+
+```
+pip install <安装包> -i <镜像源>
+```
 
 ### Pycharm远程调试服务器代码
 
