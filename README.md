@@ -171,9 +171,11 @@ pip install <安装包> -i <镜像源>
 
 ### Pycharm远程调试服务器代码
 
-**xshell是为了使用命令行配置虚拟环境和运行代码等，xftp是为了上传和下载文件。然而，若每次都在本地修改好代码再使用xftp传输到服务器中，十分费时和麻烦。因此，可以使用pycharm连接服务器，便于代码的查看、编辑和上传。**
+**注：xshell是为了使用命令行配置虚拟环境和运行代码等，xftp是为了上传和下载文件。然而，若每次都在本地修改好代码再使用xftp传输到服务器中，十分费时和麻烦。因此，可以使用pycharm连接服务器，便于代码的查看、编辑和上传。**
 
-使用Pycharm配置ssh解释器必须使用**pycharm专业版**，社区版不可连接！新版本连接方式略有不同，主要步骤包括“Add Interpreter”-“On SSH”-“Existing”，后续步骤基本一致。其中，在“3/3 Project directory and Python runtime configuration” 步骤选择Virtualenv Environment-Existing，随后按照以下教程对应部分选择解释和映射路径。
+使用Pycharm配置ssh解释器必须使用**pycharm专业版**，社区版不可连接！
+
+新版本连接方式略有不同，详细教程请[点击此处下载 PDF 文件](https://github.com/ZhengLi77/use/blob/main/assets/revision.pdf)！
 
 右下角选择解释器---添加解释器---ssh解释器---新建ssh并测试连接成功---选择服务器自己目录下miniconda下的对应的python解释器---本地电脑的文件夹路径与服务器的项目文件夹进行对应---取消自动同步---检查是否配置正确---应用即可
 
@@ -262,4 +264,5 @@ exit # 销毁test会话
 ### 问题与建议
 
 本教程旨在帮助新同学快速上手远程服务器，整理仓促难免存在疏漏或者错误。如发现问题或希望提出修改建议，请联系微信``lzbulabula``。
+
 
